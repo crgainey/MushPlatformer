@@ -5,6 +5,7 @@ using UnityEngine;
 public class EnemyPlatformMovement : MonoBehaviour
 {
     [SerializeField] float _speed;
+    [SerializeField] int _radius;
 
     [SerializeField] Transform groundCheck; // checks enemy has hit end of platform 
     [SerializeField] LayerMask groundLayer;
@@ -13,15 +14,19 @@ public class EnemyPlatformMovement : MonoBehaviour
     Rigidbody2D _rigidbody2D;
     BoxCollider2D _boxCollider;
 
+    PlayerMovement _player;
+    [SerializeField] Transform _playerTransform;
+
     void Start()
     {
         _rigidbody2D = GetComponent<Rigidbody2D>();
-
+        _player = GetComponent<PlayerMovement>();
     }
 
     private void Update()
     {
         Patrol();
+        
         _turn = !Physics2D.OverlapCircle(groundCheck.position, 0.1f, groundLayer); // Checks if enemy has reached edge.
     }
     
@@ -32,6 +37,7 @@ public class EnemyPlatformMovement : MonoBehaviour
         {
             Flip();
         }
+
         _rigidbody2D.velocity = new Vector2(_speed * Time.fixedDeltaTime, _rigidbody2D.velocity.y);
     }
 

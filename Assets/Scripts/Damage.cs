@@ -6,6 +6,8 @@ public class Damage : MonoBehaviour
 {
     Health _health;
     PlayerMovement _player;
+    EnemyPlatformMovement _enemyPlatform;
+    EnemyWaypointMovement _enemyWaypoint;
 
     private void Start()
     {
@@ -19,6 +21,9 @@ public class Damage : MonoBehaviour
         {
             _health.TakeDamage();
         }
+
     }
+
+
 
 }

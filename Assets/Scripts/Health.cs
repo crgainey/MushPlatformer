@@ -7,7 +7,8 @@ public class Health : MonoBehaviour
 {
 
     int _health = 3;
-    int _numOfHearts = 3; 
+    int _numOfHearts = 3;
+
 
     [SerializeField] Image[] _hearts;
     [SerializeField] Sprite _fullHeart;

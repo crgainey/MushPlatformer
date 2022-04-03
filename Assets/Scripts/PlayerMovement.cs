@@ -35,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
         }
 
         IsGrounded();
-
     }
 
     void Movement()
